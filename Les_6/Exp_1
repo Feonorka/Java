@@ -1,0 +1,59 @@
+public class Laptop
+{
+    private String model;
+    private int RAM;
+    private int HDD;
+    private String OS;
+    private String color;
+
+    public Laptop(String model, int RAM, int HDD, String OS, String color)
+    {
+        this.model = model;
+        this.RAM = RAM;
+        this.HDD = HDD;
+        this.OS = OS;
+        this.color = color;
+    }
+
+    public String getModel() { return model; }
+
+    public void setModel(String model) { this.model = model; }
+
+    public int getRAM() { return RAM; }
+
+    public void setRAM(int RAM) { this.RAM = RAM; }
+
+    public int getHDD() { return HDD; }
+
+    public void setHDD(int HDD) { this.HDD = HDD; }
+
+    public String getOS() { return OS;}
+
+    public void setOS(String OS) {this.OS = OS;}
+
+    public String getColor() {return color;}
+
+    public void setColor(String color) {this.color=color;} 
+
+     // метод для фильтрации ноутбуков по заданным критериям с помощью Map с параметрами фильтрации: 
+     // (ключ - критерий, значение - минимальное значение): 
+     // (1 - RAM, 2 - HDD, 3 - OS, 4 - Color):  
+      public static List<Laptop> filterLaptopsByCriteria(List<Laptop> laptops, Map<Integer, Integer> criteriaMap)
+      {
+        List<Laptop> filteredLaptops=new ArrayList<>();
+        for (Laptop laptop : laptops)
+        {
+            boolean isPassed=true;
+            for (Map.Entry<Integer, Integer> entry : criteriaMap.entrySet())
+            {   switch (entry.getKey()){
+                case 1: if (laptop.getRAM() < entry.getValue()) isPassed=false;; break ;
+                case 2: if (laptop.getHDD() < entry.getValue()) isPassed=false;; break ;
+                case 3: if (!laptop.getOS().equalsIgnoreCase(entry.getValue().toString())) isPassed=false;; break ;
+                case 4: if (!laptop.getColor().equalsIgnoreCase(entry.getValue().toString())) isPassed=false;; break ;}
+                if (!isPassed) break ;
+            }
+            if (isPassed) filteredLaptops .add(laptop);
+        }
+            return filteredLaptops ;
+    }
+}

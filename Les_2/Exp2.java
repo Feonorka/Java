@@ -1,4 +1,4 @@
-package Les_2.Exp_2;
+package Les_2;
 
 import java.io.FileWriter;
 import java.io.IOException;
