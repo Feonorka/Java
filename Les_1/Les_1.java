@@ -53,6 +53,5 @@ public class Les_1 {
         double y = iScanner_med.nextDouble();
         System.out.printf("%d + %f = %f", x, y, x + y);
         iScanner_med.close();
-
     }
 }
