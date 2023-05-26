@@ -8,7 +8,7 @@ public class HeapSort {
         HeapSort ob = new HeapSort();
         ob.sort(arr);
 
-        System.out.println("Sorted array is");
+        System.out.println("Отсортированный массив:");
         for (int i = 0; i < n; ++i)
             System.out.print(arr[i] + " ");
         System.out.println();
